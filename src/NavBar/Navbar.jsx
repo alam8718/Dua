@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <>
       <div className="">
-        {/* <TopBar /> */}
+        <TopBar />
         <SideBar />
       </div>
     </>

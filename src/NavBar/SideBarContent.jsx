@@ -5,16 +5,21 @@ import SideBarDropDown from "./SideBarDropDown";
 import {useGlobalContext} from "../context/Context";
 
 function SideBarContent({category}) {
-  const {subCategories} = useGlobalContext();
+  const {subCategories,setCategoryId} = useGlobalContext();
   const [dropDown, setDropDown] = useState(false);
-  const {cat_name_en, no_of_subcat, no_of_dua} = category;
+  const {cat_name_en, no_of_subcat, no_of_dua, cat_id} = category;
   return (
     <>
       <div
-        className={`my-3 w-[490px]  ${dropDown ? "h-[445px]" : "h-[80px]"} `}>
+        className={`my-3  w-[490px] max-lg:w-full max-lg:my-4 ${
+          dropDown ? "h-[445px]" : "h-[80px]"
+        } `}>
         <div
           className="w-auto h-[80px] px-2  "
-          onClick={() => setDropDown(!dropDown)}>
+          onClick={() =>{
+            setDropDown(!dropDown)
+            setCategoryId(cat_id)
+          } }>
           <div
             className={`w-full h-full rounded-xl flex items-center hover:bg-[#E8F0F5] ${
               dropDown && "bg-[#E8F0F5]"
@@ -42,7 +47,7 @@ function SideBarContent({category}) {
           className={`w-full h-[calc(100%-80px)] transition-all  duration-300 overflow-hidden ${
             dropDown ? " translate-y-1" : " translate-y-0"
           } `}>
-          <div >
+          <div>
             <SideBarDropDown
               subCategories={subCategories}
               dropDown={dropDown}
