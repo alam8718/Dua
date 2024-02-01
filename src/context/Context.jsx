@@ -1,42 +1,55 @@
 import {createContext, useContext, useEffect, useState} from "react";
-
+import fetchData from "./fetchData";
 export const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
-  const [tableName, setTableName] = useState("category");
-  const [fetchedData, setFetchedData] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState([]);
+  const [dua, setDua] = useState([]);
   const [sideBar, setSideBar] = useState(true);
   const [dropDown, setDropDown] = useState(false);
+
   //fetching data form database
+  const fetchCategoryData = async () => {
+    try {
+      const data = await fetchData("category");
+      setCategories(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fetchSubCategoryData = async () => {
+    try {
+      const data = await fetchData("sub_category");
+      setSubCategories(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fetchDuaData = async () => {
+    try {
+      const data = await fetchData("dua");
+      setDua(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3004/api/data?table=${tableName}`
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const jsonData = await response.json();
-        // console.log(jsonData);
-        setFetchedData(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+    fetchCategoryData();
+    fetchSubCategoryData();
+    fetchDuaData();
   }, []);
-  console.log(fetchedData);
-  console.log(dropDown);
+  console.log("I am category", categories);
+  console.log("I am sub_category", subCategories);
+  console.log("I am dua", dua);
 
   return (
     <AppContext.Provider
       value={{
-        fetchedData,
-        setTableName,
+        categories,
+        subCategories,
+        dua,
         sideBar,
         setSideBar,
         setDropDown,
