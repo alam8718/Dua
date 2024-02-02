@@ -6,16 +6,21 @@ export const AppProvider = ({children}) => {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [dua, setDua] = useState([]);
-  const [sideBar, setSideBar] = useState(true);
-  const [dropDown, setDropDown] = useState(false);
-  const [categoryId, setCategoryId] = useState(1);
+  const [sideBar, setSideBar] = useState(false);
+  const [dropDown, setDropDown] = useState();
+  // const [categoryId, setCategoryId] = useState(1);
+  const [subCategoryId, setSubCategory] = useState(1);
   const [filterCategory, setFilterCategory] = useState([]);
+  const [filterSubCategory, setFilterSubCategory] = useState([]);
+  const [filterDua, setFilterDua] = useState([]);
 
   //fetching data form database
   const fetchCategoryData = async () => {
     try {
       const data = await fetchData("category");
       setCategories(data);
+      const filterData = data.filter((item) => item.cat_id === subCategoryId);
+      setFilterCategory(filterData[0]);
     } catch (error) {
       console.log(error);
     }
@@ -24,6 +29,8 @@ export const AppProvider = ({children}) => {
     try {
       const data = await fetchData("sub_category");
       setSubCategories(data);
+      const filterData = data.filter((item) => item.cat_id === subCategoryId);
+      setFilterSubCategory(filterData);
     } catch (error) {
       console.log(error);
     }
@@ -32,27 +39,32 @@ export const AppProvider = ({children}) => {
     try {
       const data = await fetchData("dua");
       setDua(data);
-      const filterData = data.filter((item) => item.cat_id === categoryId);
-      setFilterCategory(filterData);
+      const filterData = data.filter((item) => item.cat_id === subCategoryId);
+      setFilterDua(filterData);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchDuaData();
-  }, [categoryId]);
-  
-  useEffect(() => {
     fetchCategoryData();
     fetchSubCategoryData();
     fetchDuaData();
   }, []);
+
+  useEffect(() => {
+    fetchDuaData();
+    fetchCategoryData();
+    fetchSubCategoryData();
+  }, [subCategoryId]);
+
   console.log("I am category", categories);
   console.log("I am sub_category", subCategories);
   console.log("I am dua", dua);
-  console.log("I am filter data ", filterCategory);
-  console.log("i am id ", categoryId);
+  console.log("I am filter dua ", filterDua);
+  console.log("i am id ", subCategoryId);
+  console.log("i am filtecategory ", filterCategory);
+  console.log("i am filte sub cat ", filterSubCategory);
 
   return (
     <AppContext.Provider
@@ -64,8 +76,10 @@ export const AppProvider = ({children}) => {
         setSideBar,
         setDropDown,
         dropDown,
-        setCategoryId,
+        setSubCategory,
+        filterDua,
         filterCategory,
+        filterSubCategory,
       }}>
       {children}
     </AppContext.Provider>

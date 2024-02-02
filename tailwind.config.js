@@ -11,7 +11,7 @@ export default {
         'md': '768px',
         'lg': '1024px',
         'max-lg': "1140px",
-        'custom-xl': '1280px',
+        'xl': '1280px',
       },
     },
   },

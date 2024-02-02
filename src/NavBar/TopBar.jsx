@@ -45,14 +45,14 @@ function TopBar() {
           </div>
         </div>
       </div>
-      <div className="md:hidden flex justify-between mx-4 py-4">
-        <div className="text-lg flex items-center gap-2  ">
-          <span>
+      <div className="md:hidden flex justify-between px-3 py-4">
+        <div className="text-lg flex  items-center gap-2  ">
+          <button className="">
             <IoIosArrowBack size={22} />
-          </span>
-          Dua's Page
+          </button>
+          Duas Page
         </div>
-        <button className="cursor-pointer">
+        <button className="cursor-pointer mr-4">
           <RiSettings2Fill size={22} className="text-green-600" />
         </button>
       </div>

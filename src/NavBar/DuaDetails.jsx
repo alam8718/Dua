@@ -19,7 +19,7 @@ function DuaDetails({item}) {
   } = item;
   return (
     <>
-      <div className="mr-3 my-8">
+      <div className=" my-8">
         {/* details */}
         <div className="flex flex-col p-6 bg-white rounded-xl">
           {/* details title  */}
@@ -31,17 +31,20 @@ function DuaDetails({item}) {
                 alt="details logo"
               />
               <div className="font-semibold text-[16px] text-[#1FA45B] flex items-center ">
-                <p className="mr-1">{`${dua_id}.`}</p>
-                <p>{`${dua_name_en}`}</p>
+                {dua_id !== null && <p className="mr-1">{`${dua_id}.`}</p>}
+                {dua_name_en !== null && <p>{`${dua_name_en}`}</p>}
               </div>
             </div>
           </div>
           {/* details paragraph  */}
           <div>
             <div className="w-full flex flex-col gap-5 ">
-              <p className="mt-5 text-justify font-normal leading-8">
-                {`${top_en}`}
-              </p>
+              {top_en !== null && (
+                <p className="mt-5 text-justify font-normal leading-8">
+                  {`${top_en}`}
+                </p>
+              )}
+
               {dua_arabic !== null && (
                 <p className=" text-right text-[26px] ">{dua_arabic}</p>
               )}
@@ -65,7 +68,9 @@ function DuaDetails({item}) {
                 <p className="font-semibold text-[16px] text-[#1FA45B]">
                   Reference:
                 </p>
-                <p className="font-medium text-[16px]">{`${refference_en}`}</p>
+                {refference_en !== null && (
+                  <p className="font-medium text-[16px]">{`${refference_en}`}</p>
+                )}
               </div>
               {/* details icons  */}
               <div className=" mt-5 flex justify-between items-center">

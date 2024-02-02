@@ -5,24 +5,30 @@ import SideBarDropDown from "./SideBarDropDown";
 import {useGlobalContext} from "../context/Context";
 
 function SideBarContent({category}) {
-  const {subCategories,setCategoryId} = useGlobalContext();
-  const [dropDown, setDropDown] = useState(false);
+  const {
+    subCategories,
+    setSubCategory,
+    filterSubCategory,
+    setDropDown,
+    dropDown,
+  } = useGlobalContext();
+
   const {cat_name_en, no_of_subcat, no_of_dua, cat_id} = category;
   return (
     <>
       <div
         className={`my-3  w-[490px] max-lg:w-full max-lg:my-4 ${
-          dropDown ? "h-[445px]" : "h-[80px]"
+          dropDown === cat_id ? "h-auto" : "h-[80px]"
         } `}>
         <div
-          className="w-auto h-[80px] px-2  "
-          onClick={() =>{
-            setDropDown(!dropDown)
-            setCategoryId(cat_id)
-          } }>
+          className="w-auto h-[80px] px-2"
+          onClick={() => {
+            setDropDown(cat_id);
+            setSubCategory(cat_id);
+          }}>
           <div
             className={`w-full h-full rounded-xl flex items-center hover:bg-[#E8F0F5] ${
-              dropDown && "bg-[#E8F0F5]"
+              dropDown === cat_id && "bg-[#E8F0F5]"
             }`}>
             <div className="w-full flex justify-between items-center px-3">
               <div className="flex items-center gap-2 ">
@@ -44,12 +50,12 @@ function SideBarContent({category}) {
           </div>
         </div>
         <div
-          className={`w-full h-[calc(100%-80px)] transition-all  duration-300 overflow-hidden ${
+          className={`w-full h-[calc(100%-100px)] transition-all  duration-300 overflow-hidden ${
             dropDown ? " translate-y-1" : " translate-y-0"
           } `}>
-          <div>
+          <div className="">
             <SideBarDropDown
-              subCategories={subCategories}
+              dropDownList={filterSubCategory}
               dropDown={dropDown}
             />
           </div>
