@@ -17,7 +17,7 @@ function SideBarContent({category}) {
   return (
     <>
       <div
-        className={`my-3  w-[490px] max-lg:w-full max-lg:my-4 ${
+        className={`my-3 pr-3  w-[490px] max-lg:w-full max-lg:my-4 ${
           dropDown === cat_id ? "h-auto" : "h-[80px]"
         } `}>
         <div
@@ -27,10 +27,10 @@ function SideBarContent({category}) {
             setSubCategory(cat_id);
           }}>
           <div
-            className={`w-full h-full rounded-xl flex items-center hover:bg-[#E8F0F5] ${
+            className={`w-full  h-full rounded-xl flex items-center hover:bg-[#E8F0F5] ${
               dropDown === cat_id && "bg-[#E8F0F5]"
             }`}>
-            <div className="w-[calc(100%-60px)] lg:w-full flex justify-between items-center px-3">
+            <div className="w-[calc(100%-20px)] lg:w-full flex justify-between items-center px-3">
               <div className="flex items-center gap-2 ">
                 <div className="rounded-xl">
                   <img
@@ -56,7 +56,7 @@ function SideBarContent({category}) {
           </div>
         </div>
         <div
-          className={`w-full h-[calc(100%-100px)] transition-all  duration-300 overflow-hidden ${
+          className={`w-[calc(100%-80px)]  h-[calc(100%-100px)] transition-all  duration-300 overflow-hidden ${
             dropDown ? " translate-y-1" : " translate-y-0"
           } `}>
           <div className="">

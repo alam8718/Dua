@@ -27,7 +27,7 @@ function SideBar() {
           sideBar ? "translate-x-0" : "-translate-x-[600px]"
         }`}></div>
       <div
-        className={`z-10 max-lg:hidden fixed top-0 w-full sm:w-[490px] h-screen bg-white  duration-500 transition-all ease-out ${
+        className={`z-10 max-lg:hidden fixed top-0 w-[460px] sm:w-[490px] h-screen bg-white  duration-500 transition-all ease-out ${
           sideBar ? "translate-x-0" : "-translate-x-[600px]"
         }`}>
         <div
@@ -38,7 +38,7 @@ function SideBar() {
           </button>
         </div>
         {/* sidebar contents  */}
-        <div className="h-[calc(100%-60px)] overflow-y-scroll overflow-x-hidden py-5">
+        <div className=" h-[calc(100%-60px)] overflow-y-scroll overflow-x-hidden py-5">
           {categories.map((category, index) => (
             <div key={index} className="">
               <SideBarContent category={category} />
