@@ -3,6 +3,7 @@ import TopBar from "./TopBar";
 import SideBar from "./SideBar";
 import BottomBar from "./BottomBar";
 import LeftSideBar from "./LeftSideBar";
+import RightSideBar from "./RightSideBar";
 
 function Navbar() {
   return (

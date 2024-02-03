@@ -12,6 +12,7 @@ import {IoIosArrowBack} from "react-icons/io";
 import profileImage from "../images/muslim-icon-15.jpg";
 import downIcon from "../images/down_icon.png";
 import logo from "../images/logo.png";
+import RightSideBar from "./RightSideBar";
 
 function SideBar() {
   const {sideBar, setSideBar, categories, filterCategory, filterDua} =
@@ -41,9 +42,8 @@ function SideBar() {
       </div>
 
       {/* for large screen    */}
-      <div className="w-full xl:w-[calc(100%-150px)] xl:fixed xl:right-0 h-[calc(100%-24px)] xl:h-screen flex flex-col gap-5 md:top-[130px] xl:top-6  ">
-
-        {/*large screen  navbar  */}
+      <div className="w-full xl:w-[calc(100%-150px)] xl:fixed xl:right-0 h-[calc(100%-24px)] xl:h-screen flex flex-col gap-5 md:top-[130px] xl:top-6 relative ">
+        {/*large screen  navbar part */}
         <div className="w-[calc(100%-30px)] h-14">
           <div className=" flex justify-between ">
             <div className="w-[calc(100%-260px)] flex items-center justify-between ">
@@ -74,7 +74,7 @@ function SideBar() {
                     <img src={downIcon} alt="" className="w-[8px] h-[9px] " />
                   </button>
                 </div>
-                <button className="cursor-pointer">
+                <button className="cursor-pointer max-xl:hidden">
                   <RiSettings2Fill size={22} className="text-green-600" />
                 </button>
               </div>
@@ -82,9 +82,9 @@ function SideBar() {
           </div>
         </div>
 
-        {/*large screen sidebar  */}
-        <div className="flex gap-5">
-          <div className="hidden max-lg:block  w-[350px] h-[75vh] xl:h-[820px]  left-7 bg-white rounded-xl overflow-hidden">
+        {/*large screen middle part  */}
+        <div className=" flex ">
+          <div className="hidden mr-5 max-lg:block  w-[429px] h-[75vh] xl:h-[820px]  left-7 bg-white rounded-xl overflow-hidden">
             <div className="w-full h-14 bg-[#1FA45B] rounded-t-xl flex justify-center items-center">
               <p className="text-base font-semibold text-white ">Categories</p>
             </div>
@@ -113,7 +113,7 @@ function SideBar() {
           </div>
 
           {/* Dua details  */}
-          <div className=" w-full max-lg:w-[calc(100%-300px)] h-[calc(100vh-100px)] xl:h-screen  overflow-y-scroll pr-4 pb-28">
+          <div className="mr-2 w-full max-lg:w-[calc(100%-300px)] h-[calc(100vh-100px)] xl:h-screen  overflow-y-scroll pr-4 pb-28">
             {/* section title  */}
             <div className="max-lg:hidden mb-5 flex px-5 py-4 justify-start items-center rounded-xl text-[16px] leading-[25px] bg-white gap-x-2 font-medium">
               <button onClick={() => setSideBar(!sideBar)}>
@@ -134,6 +134,11 @@ function SideBar() {
                 <DuaDetails item={item} />
               </div>
             ))}
+          </div>
+
+          {/* large screen right part */}
+          <div className="hidden max-xl:block mr-10 rounded-3xl right-5 w-[330px] h-[830px]  bg-white">
+            <RightSideBar />
           </div>
         </div>
       </div>
