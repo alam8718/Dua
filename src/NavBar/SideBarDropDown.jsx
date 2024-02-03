@@ -4,10 +4,12 @@ function SideBarDropDown({dropDown, dropDownList}) {
   const calculatedHeight = `${dropDownList.length * 46}px`;
   return (
     <>
-      <div style={{height: calculatedHeight}} className={` w-full  relative mb-2 `}>
+      <div
+        style={{height: calculatedHeight}}
+        className={` w-full  relative mb-2 `}>
         <ul className="z-10 list-none absolute left-[57px]   flex flex-col gap-3 pb-5 ">
           {dropDownList.map((list, index) => (
-            <div className="">
+            <div key={index} className="">
               <hr className="h-full leading-3 fixed left-[41px] border-l-2 border-green-600 border-dotted" />
               <li
                 key={index}

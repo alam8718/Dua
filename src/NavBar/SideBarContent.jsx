@@ -1,19 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 
 import sideBarLogo from "../images/sidebarLogo.png";
 import SideBarDropDown from "./SideBarDropDown";
 import {useGlobalContext} from "../context/Context";
 
 function SideBarContent({category}) {
-  const {
-    subCategories,
-    setSubCategory,
-    filterSubCategory,
-    setDropDown,
-    dropDown,
-  } = useGlobalContext();
+  const {setSubCategory, filterSubCategory, setDropDown, dropDown} =
+    useGlobalContext();
 
-  const {cat_name_en, no_of_subcat, no_of_dua, cat_id} = category;
+  const {cat_name_en, no_of_subcat, no_of_dua, cat_id, cat_img} = category;
   return (
     <>
       <div
@@ -34,7 +29,7 @@ function SideBarContent({category}) {
               <div className="flex items-center gap-2 ">
                 <div className="rounded-xl">
                   <img
-                    src={sideBarLogo}
+                    src={cat_img}
                     alt="sidebar logo"
                     className="w-[55px] h-[55px] rounded-2xl"
                   />

@@ -1,18 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {useGlobalContext} from "../context/Context";
 import SideBarContent from "./SideBarContent";
 import DuaDetails from "./DuaDetails";
-import LeftSideBar from "./LeftSideBar";
 
 import {RxCross1} from "react-icons/rx";
 import {IoSearchOutline} from "react-icons/io5";
 import {HiBars3} from "react-icons/hi2";
 import {RiSettings2Fill} from "react-icons/ri";
-import {IoIosArrowBack} from "react-icons/io";
 
 import profileImage from "../images/muslim-icon-15.jpg";
 import downIcon from "../images/down_icon.png";
-import logo from "../images/logo.png";
 import RightSideBar from "./RightSideBar";
 
 function SideBar() {
