@@ -42,8 +42,7 @@ function SideBar() {
 
       {/* for large screen    */}
       <div className="w-full xl:w-[calc(100%-150px)] xl:fixed xl:right-0 h-[calc(100%-24px)] xl:h-screen flex flex-col gap-5 md:top-[130px] xl:top-6  ">
-        {/*  */}
-        {/*  */}
+
         {/*large screen  navbar  */}
         <div className="w-[calc(100%-30px)] h-14">
           <div className=" flex justify-between ">
@@ -64,7 +63,7 @@ function SideBar() {
               </div>
             </div>
             {/* profile  */}
-            <div className="flex items-center justify-end">
+            <div className="flex items-center justify-end pr-5">
               <div className="w-full flex justify-between items-center gap-6">
                 <div className="w-[68px] h-[45px] flex items-center gap-[6px]">
                   {/* profile image  */}
@@ -83,7 +82,7 @@ function SideBar() {
           </div>
         </div>
 
-        {/* sidebar  */}
+        {/*large screen sidebar  */}
         <div className="flex gap-5">
           <div className="hidden max-lg:block  w-[350px] h-[75vh] xl:h-[820px]  left-7 bg-white rounded-xl overflow-hidden">
             <div className="w-full h-14 bg-[#1FA45B] rounded-t-xl flex justify-center items-center">
@@ -114,7 +113,7 @@ function SideBar() {
           </div>
 
           {/* Dua details  */}
-          <div className=" w-full max-lg:w-[calc(100%-400px)] h-[calc(100vh-100px)] xl:h-screen  overflow-y-scroll pb-28">
+          <div className=" w-full max-lg:w-[calc(100%-300px)] h-[calc(100vh-100px)] xl:h-screen  overflow-y-scroll pr-4 pb-28">
             {/* section title  */}
             <div className="max-lg:hidden mb-5 flex px-5 py-4 justify-start items-center rounded-xl text-[16px] leading-[25px] bg-white gap-x-2 font-medium">
               <button onClick={() => setSideBar(!sideBar)}>
