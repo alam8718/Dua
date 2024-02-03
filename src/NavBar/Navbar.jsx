@@ -9,7 +9,7 @@ function Navbar() {
     <>
       <div className=" ">
         <TopBar />
-        {/* <LeftSideBar /> */}
+        <LeftSideBar />
         <SideBar />
         <BottomBar />
       </div>

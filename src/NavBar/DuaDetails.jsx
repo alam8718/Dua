@@ -19,9 +19,9 @@ function DuaDetails({item}) {
   } = item;
   return (
     <>
-      <div className=" my-8">
+      <div className=" mb-8">
         {/* details */}
-        <div className="flex flex-col p-6 bg-white rounded-xl">
+        <div className="m-b-4 flex flex-col p-6 bg-white rounded-xl">
           {/* details title  */}
           <div>
             <div className="flex items-center justify-start font-medium ">

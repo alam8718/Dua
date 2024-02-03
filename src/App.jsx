@@ -4,7 +4,7 @@ import Navbar from "./NavBar/Navbar";
 function App() {
   return (
     <>
-      <div className="w-full h-screen  ">
+      <div className="w-full h-screen   ">
         <Navbar />
       </div>
     </>
