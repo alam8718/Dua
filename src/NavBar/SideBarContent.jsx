@@ -30,10 +30,14 @@ function SideBarContent({category}) {
             className={`w-full h-full rounded-xl flex items-center hover:bg-[#E8F0F5] ${
               dropDown === cat_id && "bg-[#E8F0F5]"
             }`}>
-            <div className="w-full flex justify-between items-center px-3">
+            <div className="w-[calc(100%-60px)] lg:w-full flex justify-between items-center px-3">
               <div className="flex items-center gap-2 ">
                 <div className="rounded-xl">
-                  <img src={sideBarLogo} alt="" className="w-[60px] h-[60px]" />
+                  <img
+                    src={sideBarLogo}
+                    alt="sidebar logo"
+                    className="w-[55px] h-[55px] rounded-2xl"
+                  />
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="font-semibold ">{cat_name_en}</p>
@@ -42,9 +46,11 @@ function SideBarContent({category}) {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-center">
-                <p>{no_of_dua}</p>
-                <p className="text-xs text-gray-500/90">Duas</p>
+              <div className="h-[50px]">
+                <div className="h-full flex flex-col items-center justify-center px-3 border-l-2">
+                  <p>{no_of_dua}</p>
+                  <p className="text-xs text-gray-500/90">Duas</p>
+                </div>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ function DuaDetails({item}) {
                 className="w-[35px] h-[35px] mr-3"
                 alt="details logo"
               />
-              <div className="font-semibold text-[16px] text-[#1FA45B] flex items-center ">
+              <div className="font-semibold text-[16px] text-[#1FA45B] flex ">
                 {dua_id !== null && <p className="mr-1">{`${dua_id}.`}</p>}
                 {dua_name_en !== null && <p>{`${dua_name_en}`}</p>}
               </div>

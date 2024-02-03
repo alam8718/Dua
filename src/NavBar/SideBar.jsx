@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {RxCross1} from "react-icons/rx";
-import {IoSearchOutline} from "react-icons/io5";
-import {HiBars3} from "react-icons/hi2";
 import {useGlobalContext} from "../context/Context";
 import SideBarContent from "./SideBarContent";
 import DuaDetails from "./DuaDetails";
 import LeftSideBar from "./LeftSideBar";
+
+import {RxCross1} from "react-icons/rx";
+import {IoSearchOutline} from "react-icons/io5";
+import {HiBars3} from "react-icons/hi2";
 import {RiSettings2Fill} from "react-icons/ri";
 import {IoIosArrowBack} from "react-icons/io";
 
@@ -20,13 +21,18 @@ function SideBar() {
 
   return (
     <>
+      {/* for dark shade */}
       <div
-        className={`z-10 max-lg:hidden fixed top-0 w-full sm:w-[490px] h-screen bg-white  duration-300 transition-all ${
+        className={`z-10 max-lg:hidden fixed top-0 w-full sm:w-[490px] h-screen bg-black/30  duration-1000 transition-all  ${
+          sideBar ? "translate-x-0" : "-translate-x-[600px]"
+        }`}></div>
+      <div
+        className={`z-10 max-lg:hidden fixed top-0 w-full sm:w-[490px] h-screen bg-white  duration-500 transition-all ease-out ${
           sideBar ? "translate-x-0" : "-translate-x-[600px]"
         }`}>
         <div
           className={`h-14 px-5 flex items-center justify-between  bg-[#1FA45B] `}>
-          <h1 className="text-lg font-semibold text-white">Category</h1>
+          <h1 className="text-lg font-medium text-white">Categories</h1>
           <button onClick={() => setSideBar(!sideBar)}>
             <RxCross1 size={20} className="text-white" />
           </button>
@@ -42,9 +48,9 @@ function SideBar() {
       </div>
 
       {/* for large screen    */}
-      <div className="w-full xl:w-[calc(100%-150px)] xl:fixed xl:right-0 h-[calc(100%-24px)] xl:h-screen flex flex-col gap-5 md:top-[130px] xl:top-6 relative ">
+      <div className="w-full xl:w-[calc(100%-150px)] xl:fixed xl:right-0 h-[calc(100%-24px)] xl:h-screen flex flex-col gap-5  md:top-6 pl-2 max-xl:top-10 relative ">
         {/*large screen  navbar part */}
-        <div className="w-[calc(100%-30px)] h-14">
+        <div className="w-[calc(100%-30px)] h-14 hidden xl:block">
           <div className=" flex justify-between ">
             <div className="w-[calc(100%-260px)] flex items-center justify-between ">
               <p className="text-2xl">Duas Page</p>
@@ -84,7 +90,8 @@ function SideBar() {
 
         {/*large screen middle part  */}
         <div className=" flex ">
-          <div className="hidden mr-5 max-lg:block  w-[429px] h-[75vh] xl:h-[820px]  left-7 bg-white rounded-xl overflow-hidden">
+          {/* left part  */}
+          <div className="hidden mr-5 max-lg:block  w-[429px] h-[75vh] xl:h-[820px] min-xl:h-[85vh] left-7 bg-white rounded-xl overflow-hidden">
             <div className="w-full h-14 bg-[#1FA45B] rounded-t-xl flex justify-center items-center">
               <p className="text-base font-semibold text-white ">Categories</p>
             </div>
@@ -113,7 +120,7 @@ function SideBar() {
           </div>
 
           {/* Dua details  */}
-          <div className="mr-2 w-full max-lg:w-[calc(100%-300px)] h-[calc(100vh-100px)] xl:h-screen  overflow-y-scroll pr-4 pb-28">
+          <div className="m-2 w-full max-lg:w-[calc(100%-300px)] h-[calc(100vh-100px)] xl:h-screen  overflow-y-scroll pr-1 pb-28">
             {/* section title  */}
             <div className="max-lg:hidden mb-5 flex px-5 py-4 justify-start items-center rounded-xl text-[16px] leading-[25px] bg-white gap-x-2 font-medium">
               <button onClick={() => setSideBar(!sideBar)}>
@@ -137,7 +144,7 @@ function SideBar() {
           </div>
 
           {/* large screen right part */}
-          <div className="hidden max-xl:block mr-10 rounded-3xl right-5 w-[330px] h-[830px]  bg-white">
+          <div className="hidden max-xl:block mr-10 rounded-3xl right-5 w-[330px] h-[830px] max-xl:h-[85vh] bg-white">
             <RightSideBar />
           </div>
         </div>

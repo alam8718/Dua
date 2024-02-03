@@ -12,6 +12,7 @@ export default {
         'lg': '1024px',
         'max-lg': "1140px",
         'xl': '1280px',
+        'min-xl':'1440px',
         'max-xl': '1640px',
 
       },

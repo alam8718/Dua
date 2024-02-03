@@ -13,7 +13,7 @@ import logo from "../images/logo.png";
 function LeftSideBar() {
   return (
     <>
-      <div className="fixed top-6 ">
+      <div className="fixed top-6 max-xl:top-10">
         <div className="hidden w-[100px] h-[94vh] left-6 max-xl:left-8 fixed xl:flex  flex-col gap-y-5 overflow-hidden bg-white rounded-3xl items-center">
           <div className="pt-7 mb-14 ">
             <img src={logo} alt="" className="w-[50px] h-[50px] rounded-xl" />
@@ -41,7 +41,7 @@ function LeftSideBar() {
               <HiOutlineBookOpen className="w-full h-full" />
             </button>
           </div>
-          <div className="pt-7  ">
+          <div className="pt-7 max-xl:pt-20 ">
             <img src={donate} alt="" className="w-[53px] h-[53px] rounded-xl" />
           </div>
         </div>
