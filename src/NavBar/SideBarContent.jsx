@@ -12,7 +12,7 @@ function SideBarContent({category}) {
   return (
     <>
       <div
-        className={`my-3 pr-3  w-[490px] max-lg:w-full max-lg:my-4 ${
+        className={`my-3 pr-3 lg:pr-0  w-[490px] max-lg:w-full max-lg:my-4 ${
           dropDown === cat_id ? "h-auto" : "h-[80px]"
         } `}>
         <div
@@ -25,9 +25,9 @@ function SideBarContent({category}) {
             className={`w-full  h-full rounded-xl flex items-center hover:bg-[#E8F0F5] ${
               dropDown === cat_id && "bg-[#E8F0F5]"
             }`}>
-            <div className="w-[calc(100%-20px)] lg:w-full flex justify-between items-center px-3">
+            <div className="w-[calc(100%-20px)] lg:w-full flex justify-between items-center px-3 lg:px-0">
               <div className="flex items-center gap-2 ">
-                <div className="rounded-xl">
+                <div className="rounded-xl pl-2">
                   <img
                     src={cat_img}
                     alt="sidebar logo"
@@ -42,7 +42,7 @@ function SideBarContent({category}) {
                 </div>
               </div>
               <div className="h-[50px]">
-                <div className="h-full flex flex-col items-center justify-center px-3 border-l-2">
+                <div className="h-full flex flex-col items-center justify-center px-3  border-l-2">
                   <p>{no_of_dua}</p>
                   <p className="text-xs text-gray-500/90">Duas</p>
                 </div>
